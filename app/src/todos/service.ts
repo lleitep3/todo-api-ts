@@ -7,6 +7,8 @@ let TODOS: Todo[] = [
   new Todo({ id: randomID(), text: 'Segunda tarefa' }),
   new Todo({ id: randomID(), text: 'Terceira tarefa' }),
   new Todo({ id: randomID(), text: 'Quarta tarefa' }),
+  new Todo({ id: randomID(), text: 'Quinta tarefa' }),
+  new Todo({ id: randomID(), text: 'Sexta tarefa' }),
 ];
 
 export class TodoService {
