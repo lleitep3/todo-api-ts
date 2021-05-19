@@ -1,0 +1,6 @@
+{
+  "exclude": ["**/node_modules/**", "**/dist/**"],
+  "path": "./fixtures/",
+  "threshold": 1,
+  "silent": true
+}
