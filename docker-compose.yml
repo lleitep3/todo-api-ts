@@ -1,0 +1,43 @@
+version: "3.4"
+
+services:
+  api_todo:
+    image: sinform-teste
+    container_name: sinform-todo-api
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        - PORT=3200
+        - APP_ENV=production
+    environment:
+      - PORT=3000
+      - APP_ENV=development
+      - MONGO_CONNECTION_STR=mongodb://sinform-todo-mongodb:27017/quotas
+    ports:
+      - 3010:3000
+    volumes:
+      - type: bind
+        source: ./app
+        target: /app
+    networks:
+      - sinform-network
+
+  mongo:
+    image: mongo
+    container_name: sinform-todo-mongodb
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - type: bind
+        source: $HOME/mongo-data
+        target: /data/db
+    networks:
+      - sinform-network
+    restart: always
+
+networks:
+  sinform-network:
+    external:
+      name: sinform-network
